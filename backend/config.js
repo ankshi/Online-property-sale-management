@@ -3,6 +3,8 @@ module.exports = {
     password: "sqldl",
     host: "localhost",
     port: 5432,
-    database: "lab4db",
-    saltedrounds: "10"
+    database: "project",
+    saltedrounds: "10",
+    ojwtkey: "owner",
+    cjwtkey: "customer"
 }
