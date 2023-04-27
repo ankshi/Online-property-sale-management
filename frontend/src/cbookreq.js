@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
-const Oinfo = () => {
-    const [listsprop, setListsprop] = useState([]);
+const Cbookreq = () => {
+    const [brprop, setBrprop] = useState([]);
     const [hide, setHide] = useState(true);
     const cidgi = localStorage.getItem("customer");
     let cid = '';
@@ -9,40 +9,27 @@ const Oinfo = () => {
         cid = JSON.parse(cidgi)[0];
     }
     useEffect(() => {
-        lsprop();
+        lbreq();
     }, []);
 
-    const lsprop = async() => {
-        let result = await fetch(`http://localhost:4000/lsprop/${cid}`, {
+    const lbreq = async () => {
+        let result = await fetch(`http://localhost:4000/brprop/${cid}`, {
             headers: {
                 authorization: ` ${cid} ${JSON.parse(localStorage.getItem("ctoken"))}`
                 }
             })
         result = await result.json();
-        if (result[0].pincode) { setListsprop(result); }
+        if (result[0].pincode) { setBrprop(result); }
         else if (result) { alert(result); }
         else { setHide(false); }
     }
 
-    const bookreq = async (property) => {
-        let result = await fetch(`http://localhost:4000/bookreq`, {
-            method: 'Post',
-            body: JSON.stringify([cid, property.oid, property.id]),
-            headers: { 'Content-type': 'application/json' }
-
-        })
-        result = await result.json();
-        if (result) {
-            alert(result);
-        }
-    }
-
     return (
-        <div className="login">
-            <h1>List of properties saved by customer</h1>
-            <h1 hidden={hide}>no properties saved by customer</h1>
+        <div>
+            <h1> list of booking requests to owner </h1>
+            <h1 hidden={hide}>no booking requests sent by customer</h1>
             {
-                listsprop.map((item, index) =>
+                brprop.map((item, index) =>
                     <div>
                         <h1>street_name city pincode: {item.street_name} {item.city} {item.pincode}</h1>
                         <h1>property is for {item.buyrent}</h1>
@@ -53,14 +40,11 @@ const Oinfo = () => {
                         <h1>price/rent: {item.price} dollars</h1>
                         <h1>Number of bedrooms: {item.bedrooms}</h1>
                         <h1>construction year: {item.construction_year}</h1>
-                        <button onClick={()=>bookreq(item)}>booking request</button>
                     </div>
                 )
             }
         </div>
-    );
-};
+    )
+}
 
-
-
-export default Oinfo;
+export default Cbookreq;

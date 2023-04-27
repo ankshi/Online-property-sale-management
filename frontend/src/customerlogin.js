@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { Link,useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const CustomerLogin = () => {
     const [uname, setUname] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
     const handleLogin = async () => {
-        console.warn(uname, password);
         let result = await fetch('http://localhost:4000/clogin', {
             method: 'post',
             body: JSON.stringify({ uname, password }),
@@ -15,9 +14,10 @@ const CustomerLogin = () => {
 
         result = await result.json();
 
-        if (result.id) {
-            localStorage.setItem("customer", JSON.stringify(result.id));
-            navigate(-1);
+        if (result.auth) {
+            localStorage.setItem("customer", JSON.stringify([result.customer.id, result.customer.username]));
+            localStorage.setItem("ctoken", JSON.stringify(result.auth));
+            navigate("/chome/sfoptions");
         }
         else { alert(result); }
     }
