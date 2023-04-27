@@ -113,69 +113,76 @@ const Searchfilter = () => {
         <div className="login">
             <div>
                 <div>
-                    <h1>search and filter options</h1>
-                    <input type="text" placeholder="search address, property type, property use, residential type" onChange={searchHandle}></input>
-                    <h4>Filter options</h4>
-                    <label>Buy/rent: </label>
-                    {
+                    <h1 className='search'>Explore and sort here!</h1>
+                    <input className='button' type="text" placeholder="Search....... address, property type, property use, residential type" onChange={searchHandle}></input>
+                    <h1 className='search'>Sort here!</h1>
+                    <label className='text'>Buy/rent: </label>
+                    <select className='dropdown' onChange={fbuyrenthandlefunction}>
+                        <option className='text' value="" disabled selected hidden>Buy/Rent</option>
+                        {
                         buyrent.map((item) => 
-                            <span>
-                                <input type='radio' onChange={fbuyrenthandlefunction} checked={fbuyrent === item} value={item}></input>
-                                <label>{item}</label>
-                            </span>
+                            <option>{item}</option>
                         )
                     }
+                    </select>                    
                     <br />
-                    <label>Property type: </label>
-                    {
-                        ptypes.map((item) =>
-                            <span>
-                                <input type='radio' onChange={fptypehandlefunction} checked={fptype === item} value={item}></input>
-                                <label>{ item }</label>
-                            </span>
-                        )
-                    }
                     <br />
-                    <label>Property uses: <pre>land uses - </pre></label>
-                    {
-                        landuses.map((item) =>
-                            <span>
-                                <input type='radio' onChange={fpusehandlefunction} checked={fpuse === item} value={item}></input>
-                                <label>{item}</label>
-                            </span>
-                        )
-                    }
-                    <label><pre>building uses - </pre></label>
-                    {
-                        buildinguses.map((item) =>
-                            <span>
-                                <input type='radio' onChange={fpusehandlefunction} checked={fpuse === item} value={item}></input>
-                                <label>{item}</label>
-                            </span>
-                        )
-                    }
-                    <label><pre>structure uses - </pre></label>
-                    {
-                        structureuses.map((item) =>
-                            <span>
-                                <input type='radio' onChange={fpusehandlefunction} checked={fpuse === item} value={item}></input>
-                                <label>{item}</label>
-                            </span>
-                        )
-                    }
-                    <label><pre>residential types - </pre></label>
-                    {
-                        residentialtypes.map((item) => 
-                            <span>
-                                <input type='radio' onChange={frtypehandlefunction} checked={frtype === item} value={item}></input>
-                                <label>{item}</label>
-                            </span>
-                        )
-                    }
+                    <label className='text'>Property type: </label>
+                    <select className='dropdown' onChange={fptypehandlefunction}>
+                        <option value="" disabled selected hidden>Type</option> 
+                        {
+                            ptypes.map((item) => 
+                            <option>{item}</option>
+                            )
+                        }
+                    </select>
+                    <br />
+                    <label className='text'>Property uses: Land uses-</label>
+                    <select className='dropdown' onChange={fpusehandlefunction}>
+                        <option value="" disabled selected hidden>Usetype</option>
+                        {
+                            landuses.map((item) => 
+                            <option>{item}</option>
+                            )
+                        }
+                    </select>
+                    
+                    <label className='text'> Building uses-</label>
+                    <select className='dropdown' onChange={fpusehandlefunction}>
+                        <option value="" disabled selected hidden>Type</option>
+                        {
+                            buildinguses.map((item) => 
+                            <option>{item}</option>
+                            )
+                        }
+                    </select>
+                    
+                    <label className='text'> Structure uses -</label>
+                    <select className='dropdown' onChange={fpusehandlefunction}>
+                        <option value="" disabled selected hidden>UseType</option>
+                        {
+                            structureuses.map((item) => 
+                            <option>{item}</option>
+                            )
+                        }
+                    </select>
+                    
+                    <label className='text'> Residential types -</label>
+                    <select className='dropdown' onChange={frtypehandlefunction} >
+                        <option value="" disabled selected hidden>Types</option>
+                        {
+                            residentialtypes.map((item) => 
+                            <option>{item}</option>
+                            )
+                        }
+                    </select>
+                    
                     </div>
-                <button type="button" onClick={handlefilter}>Remove filter</button>
+                    
+                    <br />
+                <button className='button' type="button" onClick={handlefilter}>Remove filter</button>
                 <div>
-                    <h1>property details</h1>
+                    <h1>Propertiesss!!!!!</h1>
                     {
                         properties.filter(pusehandle).map((item, index) =>
                         <div>

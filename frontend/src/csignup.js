@@ -29,30 +29,31 @@ const CustomerLogin = () => {
     return (
         <div className="login">
             <form onSubmit={handleSignup}>
-                <h3>Enter username:</h3>
-                <input type="text" placeholder="Enter Username" onChange={(e) => setUname(e.target.value)} value={ID} required></input>
-                <h5>Password:</h5>
-                <input type="text" placeholder="Enter password" onChange={(e) => setPassword(e.target.value)} value={password} required/>
-                <br />
-                <h3>Enter Contact details: </h3>
+            <h1 className='lala'>Signup here!</h1>
+                <h2>Enter username:</h2>
+                <input className='inputBox' type="text" placeholder="Enter Username" onChange={(e) => setUname(e.target.value)} value={ID} required></input>
+                <h2>Password:</h2>
+                <input className='inputBox' type="text" placeholder="Enter password" onChange={(e) => setPassword(e.target.value)} value={password} required/>
+                
+                <h2>Enter Contact details: </h2>
                 <label>NAME: </label>
-                <input type='text' required onChange={(e) => setName(e.target.value)} placeholder='Enter name'></input>
-                <br />
+                <input className='inputBox' type='text' required onChange={(e) => setName(e.target.value)} placeholder='Enter name'></input>
+                
                 <label>Enter Address: </label>
-                <input type="text" required onChange={(e) => setAddress(e.target.value)} placeholder='Enter Address'></input>
-                <br />
+                <input className='inputBox' type="text" required onChange={(e) => setAddress(e.target.value)} placeholder='Enter Address'></input>
+                
                 <label>Enter City: </label>
-                <input type='text' required onChange={(e) => setCity(e.target.value)} placeholder='Enter City'></input>
-                <br />
+                <input className='inputBox' type='text' required onChange={(e) => setCity(e.target.value)} placeholder='Enter City'></input>
+                
                 <label>Enter Pincode: </label>
-                <input type="number" required min='0' onChange={(e) => setPincode(e.target.value)} placeholder='Enter Pincode'></input>
-                <br />
+                <input className='inputBox' type="number" required min='0' onChange={(e) => setPincode(e.target.value)} placeholder='Enter Pincode'></input>
+                
                 <label>Enter Phone_number: </label>
-                <input type="number" required size='10' onChange={(e) => setNumber(e.target.value)} placeholder='Enter Phone number'></input>
-                <br />
-                <button type="submit">Signup</button>
+                <input className='inputBox' type="number" required size='10' onChange={(e) => setNumber(e.target.value)} placeholder='Enter Phone number'></input>
+               <br />
+                <button className='button' type="submit">Signup</button>
             </form>
-            <h5>Have a account! Click here to <Link to="/clogin">login</Link></h5>
+            <h3>Have a account! Click here to <Link to="/clogin">login</Link></h3>
         </div>
     );
 };
