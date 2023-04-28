@@ -120,6 +120,10 @@ const Addprop = () => {
         }
     };
 
+    const filehandler = (event) => {
+        setImage(event.target.files[0]);
+    }
+
     if (sptype) {
         puseoptions = sptype.map((item) => <option value={item}>{item}</option>)
     }
@@ -197,6 +201,8 @@ const Addprop = () => {
                 <br />
                 <label>Enter number of bedrooms (applicable only for residential use): </label>
                 <input type='number' min='1' max='15' onChange={handlefunction10} placeholder='Number of bedrooms' required={requiredvalue2}></input>
+                <br />
+                <input type='file' onChange={ filehandler } />
                 <br />
                 <input type='submit'></input>
         </form>

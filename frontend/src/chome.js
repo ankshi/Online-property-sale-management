@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link, useNavigate, Outlet } from 'react-router-dom';
+import { Link, useNavigate, Outlet, useLocation } from 'react-router-dom';
 
 const Chome = () => {
     const navigate = useNavigate();
+    const url = window.location.href;
     console.log()
     const logout = () => {
         localStorage.removeItem("customer");

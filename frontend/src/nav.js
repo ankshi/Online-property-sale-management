@@ -28,6 +28,7 @@ const Nav = () => {
                     <li><Link to="/clogin">Login as Customer</Link></li>
                 }
             </ul>
+            <h1 className='head'>Welcome folks!!!!!</h1>
             <Searchfilter />
         </div>
     );
