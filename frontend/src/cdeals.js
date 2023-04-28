@@ -25,7 +25,7 @@ const Cdeals = () => {
     }
 
     const confirm = async (property) => {
-        let result = await fetch(`http://localhost:4000/confirm`, {
+        let result = await fetch(`http://localhost:4000/confirm2`, {
             method: 'Post',
             body: JSON.stringify([cid, property.oid, property.id]),
             headers: {

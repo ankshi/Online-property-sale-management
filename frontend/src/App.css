@@ -1,162 +1,175 @@
 .App {
     background-image: url("data:image/jpeg;base64,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");
-        background-repeat: no-repeat center center fixed;
+    background-repeat: no-repeat center center fixed;
     -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-    position: absolute; 
-    top: 0; 
-    left: 0; 
-    right: 0; 
-    bottom: 0; 
-    margin: auto; 
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
     min-width: 50%;
     min-height: 50%;
 }
+
 ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color:rgb(29, 203, 209);
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(29, 203, 209);
 }
 
 li {
-  float: left;
+    float: left;
 }
 
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
 
-/* Change the link color to #111 (black) on hover */
-li a:hover {
-  background-color: pink;
-}
+        /* Change the link color to #111 (black) on hover */
+        li a:hover {
+            background-color: pink;
+        }
+
 .login {
     overflow: hidden;
-  }
-  
-  /* Style the links inside the navigation bar */
-  .login a {
-    float: revert;
-    color: deeppink;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-  }
-  
-  /* Change the color of links on hover */
-  .login a:hover {
-    background-color: rgb(204, 41, 166);
-    color: black;
-  }
-  
-  /* Add a color to the active/current link */
-  .login a.active {
-    background-color: #aa0f04;
-    color: white;
-  }
-
-  .search{
-    font-family: Georgia, 'Times New Roman', Times, serif;
-  }
-.button{
-  background-color: whitesmoke;
-  color: currentColor;
-  font-size: 15px;
-  font-family: monospace;
-  text-decoration-color: #691717;
-  border: none;
-  padding: 12px;
-  text-align: left;
-  display: inline-block;
-  cursor: pointer;
 }
-span{
+
+    /* Style the links inside the navigation bar */
+    .login a {
+        float: revert;
+        color: deeppink;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+        /* Change the color of links on hover */
+        .login a:hover {
+            background-color: rgb(204, 41, 166);
+            color: black;
+        }
+
+        /* Add a color to the active/current link */
+        .login a.active {
+            background-color: #aa0f04;
+            color: white;
+        }
+
+.search {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.button {
+    background-color: whitesmoke;
+    color: currentColor;
+    font-size: 15px;
+    font-family: monospace;
+    text-decoration-color: #691717;
+    border: none;
+    padding: 12px;
+    text-align: left;
+    display: inline-block;
+    cursor: pointer;
+}
+
+span {
     display: inline-block;
 }
-h1{
-  color: black;
+
+h1 {
+    color: black;
 }
-label{
+
+label {
     color: crimson;
 }
+
 .dropbtn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
 }
 
 .dropdown {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-  background-color: darkcyan;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(45, 120, 141, 0.2);
-  padding: 10px;
-  z-index: 1;
-  font-family: auto;
-  font-size: inherit;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    background-color: darkcyan;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(45, 120, 141, 0.2);
+    padding: 10px;
+    z-index: 1;
+    font-family: auto;
+    font-size: inherit;
 }
 
 
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-input.button{
-  width: 130px;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-  background-color: none;
-  background-position: 10px 10px; 
-  background-repeat: no-repeat;
-  padding: 12px 20px 12px 40px;
-  transition: width 0.4s ease-in-out;
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+input.button {
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: none;
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    transition: width 0.4s ease-in-out;
 }
 
-input.button:focus {
-  width: 100%;
+    input.button:focus {
+        width: 100%;
+    }
+
+.dropdown option {
+    color: black;
+    font-size: 20px;
 }
-.dropdown option{
-  color:black;
-  font-size: 20px;
-}
-.text{
-  color: rgb(178, 33, 192);
+
+.text {
+    color: rgb(178, 33, 192);
     font-size: 25px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bolder;
 }
-.head{
-  font-family: sans-serif;
+
+.head {
+    font-family: sans-serif;
     font-size: xxx-large;
 }
 
 input.inputBox {
-  display: inline;
-  padding: 10px;
-  margin: 23px;
-  border: 1px solid skyblue;
-  width: 300px;
+    display: inline;
+    padding: 10px;
+    margin: 23px;
+    border: 1px solid skyblue;
+    width: 300px;
 }
-.lala{
-  color: black;
+
+.lala {
+    color: black;
     font-family: cursive;
     font-size: xxx-large;
 }
-h2{
-  font-family: Georgia, 'Times New Roman', Times, serif;
+
+h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }

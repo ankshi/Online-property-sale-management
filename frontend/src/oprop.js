@@ -24,7 +24,7 @@ const Oprop = () => {
     }
 
     const confirm = async (property) => {
-        let result = await fetch(`http://localhost:4000/confirm`, {
+        let result = await fetch(`http://localhost:4000/confirm1`, {
             method: 'Post',
             body: JSON.stringify([property.cid, oid, property.id]),
             headers: {

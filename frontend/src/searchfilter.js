@@ -120,19 +120,19 @@ const Searchfilter = () => {
                     <select className='dropdown' onChange={fbuyrenthandlefunction}>
                         <option className='text' value="" disabled selected hidden>Buy/Rent</option>
                         {
-                        buyrent.map((item) => 
-                            <option>{item}</option>
-                        )
-                    }
-                    </select>                    
+                            buyrent.map((item) =>
+                                <option>{item}</option>
+                            )
+                        }
+                    </select>
                     <br />
                     <br />
                     <label className='text'>Property type: </label>
                     <select className='dropdown' onChange={fptypehandlefunction}>
-                        <option value="" disabled selected hidden>Type</option> 
+                        <option value="" disabled selected hidden>Type</option>
                         {
-                            ptypes.map((item) => 
-                            <option>{item}</option>
+                            ptypes.map((item) =>
+                                <option>{item}</option>
                             )
                         }
                     </select>
@@ -141,45 +141,45 @@ const Searchfilter = () => {
                     <select className='dropdown' onChange={fpusehandlefunction}>
                         <option value="" disabled selected hidden>Usetype</option>
                         {
-                            landuses.map((item) => 
-                            <option>{item}</option>
+                            landuses.map((item) =>
+                                <option>{item}</option>
                             )
                         }
                     </select>
-                    
+
                     <label className='text'> Building uses-</label>
                     <select className='dropdown' onChange={fpusehandlefunction}>
                         <option value="" disabled selected hidden>Type</option>
                         {
-                            buildinguses.map((item) => 
-                            <option>{item}</option>
+                            buildinguses.map((item) =>
+                                <option>{item}</option>
                             )
                         }
                     </select>
-                    
+
                     <label className='text'> Structure uses -</label>
                     <select className='dropdown' onChange={fpusehandlefunction}>
                         <option value="" disabled selected hidden>UseType</option>
                         {
-                            structureuses.map((item) => 
-                            <option>{item}</option>
+                            structureuses.map((item) =>
+                                <option>{item}</option>
                             )
                         }
                     </select>
-                    
+
                     <label className='text'> Residential types -</label>
                     <select className='dropdown' onChange={frtypehandlefunction} >
                         <option value="" disabled selected hidden>Types</option>
                         {
-                            residentialtypes.map((item) => 
-                            <option>{item}</option>
+                            residentialtypes.map((item) =>
+                                <option>{item}</option>
                             )
                         }
                     </select>
-                    
-                    </div>
-                    
-                    <br />
+
+                </div>
+
+                <br />
                 <button className='button' type="button" onClick={handlefilter}>Remove filter</button>
                 <div>
                     <h1>Propertiesss!!!!!</h1>
