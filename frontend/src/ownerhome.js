@@ -10,12 +10,12 @@ const Ownerhome = () => {
     }
     return (
         <div>
-            <ul className="home">
-                <li className="home"><Link to="/ohome/oinfo" className="link">Ownerinfo</Link></li>
-                <li className="home"><Link to="/ohome/deals" className="link">deals</Link></li>
-                <li className="home"><Link to="/ohome/addprop" className="link">Add Property</Link></li>
-                <li className="home"><Link to="/ohome/bookreq" className="link">Booking requests</Link></li>
-                <li className="home"><button onClick={logout} className="link">Logout</button></li>
+            <ul>
+                <li ><Link to="/ohome/oinfo" className="link">Ownerinfo</Link></li>
+                <li ><Link to="/ohome/deals" className="link">Deals</Link></li>
+                <li ><Link to="/ohome/addprop" className="link">Add Property</Link></li>
+                <li ><Link to="/ohome/bookreq" className="link">Booking requests</Link></li>
+                <li className="tada"><button className='tada' onClick={logout}>Logout</button></li>
             </ul>
             <Outlet />
         </div>

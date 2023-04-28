@@ -27,7 +27,7 @@ const CustomerLogin = () => {
     }
 
     return (
-        <div className="lbata">
+        <div className="bata">
             <form onSubmit={handleSignup}>
                 <h1 className='lala'>Signup here!</h1>
                 <h2>Enter username:</h2>

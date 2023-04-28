@@ -23,7 +23,7 @@ const CustomerLogin = () => {
     }
 
     return (
-        <div className='bata'>
+        <div className="bata">
             <h1 className='lala'>Login here!!!</h1>
             <h2>Enter username:</h2>
             <input className="inputBox" type="text" placeholder="Enter Username" onChange={(e) => setUname(e.target.value)} value={uname} />

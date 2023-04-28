@@ -10,7 +10,8 @@ const Oinfo = () => {
 
     const [info, setInfo] = useState([]);
     const [lprop, setListprop] = useState([]);
-    const [image, setImage] = useState([]);
+    const [pid, setPid] = useState('');
+    const [image, setImage] = useState(null);
 
     useEffect(() => {
         getinfo();
@@ -36,17 +37,26 @@ const Oinfo = () => {
         else { alert(oinfo); }
     }
 
-    const handleimage = async (event) => {
-       await setImage(event.target.files[0]);
+    const handleimage = async (event, id) => {
+        console.log(event, id);
+        await setImage(event.target.files[0]);
+        await setPid(id);
     }
 
-    const handlesubmit = async () => {
+    const handlesubmit = async(event) => {
+        event.preventDefault();
+        const formdata = new FormData();
+        formdata.append('pid', pid);
+        formdata.append('image', image);
+        console.log(image, pid);
         let submit = await fetch(`http://localhost:4000/fileupload`, {
+            method: 'post',
+            body: formdata,
             headers: {
                 authorization: ` ${oid} ${JSON.parse(localStorage.getItem("otoken"))}`
             }
         });
-        submit = submit.json();
+        submit = await submit.json();
         if (submit) {
             alert(submit);
         }
@@ -55,7 +65,7 @@ const Oinfo = () => {
     return (
         <div className="login">
             {
-                info.map((item, index) => 
+                info.map((item, index) =>
                     <div>
                         <h1>Holaa!! {item.name}</h1>
                         <br />
@@ -70,26 +80,25 @@ const Oinfo = () => {
             }
             <h1> Your list of properties:</h1>
             <form onSubmit={handlesubmit} >
-            {
-                lprop.map((item, index) => 
-                    <span>
-                    <table id='customers'>
-                    <tr><td className='haha'>Property is for</td> <td>{item.buyrent}</td></tr>
-                            <tr><td className='haha'>Property type: </td><td>{item.property_type}</td></tr>
-                            <tr><td className='haha'>Property use: </td><td>{item.property_use}</td></tr>
-                            <tr><td className='haha'>Area of property:</td> <td>{item.area} {item.sqft_acres}</td></tr>
-                            <tr><td className='haha'>Street,city,pincode:</td><td>{item.street_name} {item.city} {item.pincode}</td></tr>
-                            <tr><td className='haha'>Price/rent:</td> <td>{item.price} dollars</td></tr>
-                            <tr><td className='haha'>Construction year:</td> <td>{item.construction_year}</td></tr>
-                            <tr><td className='haha'>Residential type: </td><td>{item.residential_type}</td></tr>
-                            <tr><td className='haha'>Number of bedrooms: </td><td>{item.bedrooms}</td></tr>
-                   
-                            <label >Upload image for property - <input type='file' onChange={handleimage} hidden={!item.residential_type}></input></label>
-                            <button type='submit' >Upload</button>
+                <h4>Note: choose only one file per upload</h4>
+                {
+                    lprop.map((item, index) =>
+                        <span>
+                            <table id='customers'>
+                                <tr><td className='haha'>Property is for</td> <td>{item.buyrent}</td></tr>
+                                <tr><td className='haha'>Property type: </td><td>{item.property_type}</td></tr>
+                                <tr><td className='haha'>Property use: </td><td>{item.property_use}</td></tr>
+                                <tr><td className='haha'>Area of property:</td> <td>{item.area} {item.sqft_acres}</td></tr>
+                                <tr><td className='haha'>Street,city,pincode:</td><td>{item.street_name} {item.city} {item.pincode}</td></tr>
+                                <tr><td className='haha'>Price/rent:</td> <td>{item.price} dollars</td></tr>
+                                <tr><td className='haha'>Construction year:</td> <td>{item.construction_year}</td></tr>
+                                <tr><td className='haha'>Residential type: </td><td>{item.residential_type}</td></tr>
+                                <tr><td className='haha'>Number of bedrooms: </td><td>{item.bedrooms}</td></tr>
+                                <label  hidden={item.filename}>Upload image for property - <input type='file' name='image' onChange={(event) => handleimage(event, item.id)} hidden={item.filename}></input></label>
+                                <button className='upimg' type='submit' hidden={item.filename}>Upload</button>
                             </table>
-                    </span>
-                )
-            }
+                        </span>
+            )}
             </form>
         </div>
     );

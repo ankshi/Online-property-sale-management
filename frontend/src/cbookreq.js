@@ -26,21 +26,24 @@ const Cbookreq = () => {
 
     return (
         <div className='bata'>
-            <h1> list of booking requests to owner </h1>
-            <h1 hidden={hide}>no booking requests sent by customer</h1>
+            <h1> Your Booking requests: </h1><br />
+            
             {
                 brprop.map((item, index) =>
-                    <div>
-                        <h1>street_name city pincode: {item.street_name} {item.city} {item.pincode}</h1>
-                        <h1>property is for {item.buyrent}</h1>
-                        <h1>property type: {item.property_type}</h1>
-                        <h1>property use: {item.property_use}</h1>
-                        <h1>residential type: {item.residential_type}</h1>
-                        <h1>area of property: {item.area} {item.sqft_acres}</h1>
-                        <h1>price/rent: {item.price} dollars</h1>
-                        <h1>Number of bedrooms: {item.bedrooms}</h1>
-                        <h1>construction year: {item.construction_year}</h1>
-                    </div>
+                    <span>
+                        <table id='customers'>
+
+                            <tr><td className='haha'>Property is for</td> <td>{item.buyrent}</td></tr>
+                            <tr><td className='haha'>Property type: </td><td>{item.property_type}</td></tr>
+                            <tr><td className='haha'>Property use: </td><td>{item.property_use}</td></tr>
+                            <tr><td className='haha'>Area of property:</td> <td>{item.area} {item.sqft_acres}</td></tr>
+                            <tr><td className='haha'>Street,city,pincode:</td><td>{item.street_name} {item.city} {item.pincode}</td></tr>
+                            <tr><td className='haha'>Price/rent:</td> <td>{item.price} dollars</td></tr>
+                            <tr><td className='haha'>Construction year:</td> <td>{item.construction_year}</td></tr>
+                            <tr><td className='haha'>Residential type: </td><td>{item.residential_type}</td></tr>
+                            <tr><td className='haha'>Number of bedrooms: </td><td>{item.bedrooms}</td></tr>
+                        </table>
+                    </span>
                 )
             }
         </div>

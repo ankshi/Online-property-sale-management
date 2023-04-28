@@ -38,26 +38,30 @@ const Oprop = () => {
         }
     }
     return (
-        <div className='bata'>
-            <h1>List of pending/confirmed deals</h1>
-            <h1 hidden={hide}>there are no pending/confirmed deals</h1>
-            <h1 hidden={!hide}>list of pending deals</h1>
+        <div className="bata">
+            <h1 hidden={!hide}>Pending deals</h1>
             {
                 listdeals.filter((item) => { return (item.status === 3) }).map((item, index) =>
-                    <div>
-                        <h1>customer name: {item.username}</h1>
-                        <h1>street_name city pincode: {item.street_name} {item.city} {item.pincode}</h1>
-                        <button onClick={() => confirm(item)}>confirm deal</button>
-                    </div>
+                    <span>
+                        <table id='customers'>
+                            <tr><td className='haha'>Customer name:</td><td> {item.username}</td></tr>
+                            <tr><td className='haha'>PhoneNumber:</td><td> {item.phone_number}</td></tr>
+                            <tr><td className='haha'>Streetname,city,pincode:</td><td> {item.street_name} {item.city} {item.pincode}</td></tr>
+                        </table><br />
+                        <button className='jaja' onClick={() => confirm(item)}>Confirm deal</button>
+                     </span>
                 )
             }
-            <h1 hidden={!hide}>list of confirmed deals</h1>
+            <h1 hidden={!hide}>Confirmed deals</h1>
             {
                 listdeals.filter((item) => { return (item.status === 4) }).map((item, index) =>
-                    <div>
-                        <h1>customer name: {item.username}</h1>
-                        <h1>street_name city pincode: {item.street_name} {item.city} {item.pincode}</h1>
-                    </div>
+                    <span>
+                    <table id='customers'>
+                        <tr><td className='haha'>Customer name:</td><td> {item.username}</td></tr>
+                        <tr><td className='haha'>PhoneNumber:</td><td> {item.phone_number}</td></tr>
+                        <tr><td className='haha'>Streetname,city,pincode:</td><td> {item.street_name} {item.city} {item.pincode}</td></tr>
+                     </table>
+                    </span>
                 )
             }
         </div>

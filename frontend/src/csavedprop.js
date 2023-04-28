@@ -28,7 +28,10 @@ const Oinfo = () => {
         let result = await fetch(`http://localhost:4000/bookreq`, {
             method: 'Post',
             body: JSON.stringify([cid, property.oid, property.id]),
-            headers: { 'Content-type': 'application/json' }
+            headers: {
+                'Content-type': 'application/json',
+                authorization: ` ${cid} ${JSON.parse(localStorage.getItem("ctoken"))}`
+            }
 
         })
         result = await result.json();
@@ -39,22 +42,25 @@ const Oinfo = () => {
 
     return (
         <div className="bata">
-            <h1>List of properties saved by customer</h1>
-            <h1 hidden={hide}>no properties saved by customer</h1>
+            <h1>Your saved properties!!</h1>
             {
                 listsprop.map((item, index) =>
-                    <div>
-                        <h1>street_name city pincode: {item.street_name} {item.city} {item.pincode}</h1>
-                        <h1>property is for {item.buyrent}</h1>
-                        <h1>property type: {item.property_type}</h1>
-                        <h1>property use: {item.property_use}</h1>
-                        <h1>residential type: {item.residential_type}</h1>
-                        <h1>area of property: {item.area} {item.sqft_acres}</h1>
-                        <h1>price/rent: {item.price} dollars</h1>
-                        <h1>Number of bedrooms: {item.bedrooms}</h1>
-                        <h1>construction year: {item.construction_year}</h1>
-                        <button onClick={()=>bookreq(item)}>booking request</button>
-                    </div>
+                    <span>
+                        <table id='customers'>
+
+                            <tr><td className='haha'>Property is for</td> <td>{item.buyrent}</td></tr>
+                            <tr><td className='haha'>Property type: </td><td>{item.property_type}</td></tr>
+                            <tr><td className='haha'>Property use: </td><td>{item.property_use}</td></tr>
+                            <tr><td className='haha'>Area of property:</td> <td>{item.area} {item.sqft_acres}</td></tr>
+                            <tr><td className='haha'>Street,city,pincode:</td><td>{item.street_name} {item.city} {item.pincode}</td></tr>
+                            <tr><td className='haha'>Price/rent:</td> <td>{item.price} dollars</td></tr>
+                            <tr><td className='haha'>Construction year:</td> <td>{item.construction_year}</td></tr>
+                            <tr><td className='haha'>Residential type: </td><td>{item.residential_type}</td></tr>
+                            <tr><td className='haha'>Number of bedrooms: </td><td>{item.bedrooms}</td></tr>
+
+                            <button className='jaja' onClick={() => bookreq(item)}>Request to book</button>
+                        </table>
+                    </span>
                 )
             }
         </div>

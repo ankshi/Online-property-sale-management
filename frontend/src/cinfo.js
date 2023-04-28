@@ -25,16 +25,18 @@ const Cinfo = () => {
 
     return (
         <div className="bata">
-            <h1>Information about customer</h1>
+            <h1>Your info!!!</h1><br />
             {
                 info.map((item, index) =>
                     <div>
-                        <h1>Welcome {item.name}</h1>
-                        <h1>username: {item.username}</h1>
-                        <h1>address: {item.street_name}</h1>
-                        <h1>city: {item.city}</h1>
-                        <h1>pincode: {item.pincode}</h1>
-                        <h1>phonenumber: {item.phone_number}</h1>
+
+                        <h1>Holaa!! {item.name}</h1>
+                        <br />
+                        <h2>Username: {item.username}</h2>
+                        <h2>Door-no: {item.street_name}</h2>
+                        <h2>City: {item.city}</h2>
+                        <h2>Pincode: {item.pincode}</h2>
+                        <h2>Phonenumber: {item.phone_number}</h2>
                     </div>
                 )
             }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Addprop = () => {
     const oidgi = localStorage.getItem("owner");
@@ -114,9 +114,7 @@ const Addprop = () => {
             }
         })
         result = await result.json();
-        console.log(result);
         if (result) {
-            console.log(result);
             alert(result);
         }
     };
@@ -133,9 +131,9 @@ const Addprop = () => {
     if (ptype === 'Building' || ptype === 'Structure') { requiredvalue1 = true; }
 
     return (
-        <div className="bata">
+        <div className='bata'>
             <form onSubmit={handlefunction11}>
-                <h1>Add property</h1>
+                <h1>New property.. Add here!!!</h1>
                 <label>Enter Address: </label>
                 <input type="text" required onChange={handlefunction7} placeholder='Enter Address'></input>
                 <br />
@@ -199,7 +197,7 @@ const Addprop = () => {
                 <label>Enter number of bedrooms (applicable only for residential use): </label>
                 <input type='number' min='1' max='15' onChange={handlefunction10} placeholder='Number of bedrooms' required={requiredvalue2}></input>
                 <br />
-                <input type='submit'></input>
+                <button className='button'type='submit'>Submit</button>
         </form>
         </div>
     );

@@ -37,16 +37,17 @@ const Obookreq = () => {
 
     return (
         <div className="bata">
-            <h1>List of booking requests</h1>
-            <h1 hidden={hide}>there are no pending/confirmed deals</h1>
-            <h1 hidden={!hide}>list of pending deals</h1>
+            <h1>Booking requests</h1>
             {
                 listbr.map((item, index) =>
-                    <div>
-                        <h1>customer username: {item.username}</h1>
-                        <h1>street_name city pincode: {item.street_name} {item.city} {item.pincode}</h1>
-                        <button onClick={() => accept(item)}>accept request</button>
-                    </div>
+                    <span>
+                        <table id='customers'>
+                            <tr><td className='haha'>Customer name:</td><td> {item.username}</td></tr>
+                            <tr><td className='haha'>PhoneNumber:</td><td> {item.phone_number}</td></tr>
+                            <tr><td className='haha'>Streetname,city,pincode:</td><td> {item.street_name} {item.city} {item.pincode}</td></tr>
+                        </table><br />
+                        <button className='jaja' onClick={() => accept(item)}>Accept request</button>
+                    </span>
                 )
             }
         </div>

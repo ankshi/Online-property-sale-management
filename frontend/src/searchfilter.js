@@ -6,6 +6,7 @@ const Searchfilter = () => {
     const [fptype, setFptype] = useState('');
     const [fpuse, setFpuse] = useState('');
     const [frtype, setRtype] = useState('');
+    const [image, setImage] = useState(null);
     const authcustomer = localStorage.getItem("customer");
     let cid = '';
     if (authcustomer) {
@@ -109,6 +110,26 @@ const Searchfilter = () => {
         setRtype('');
     }
 
+    const handledownload = async (pid) => {
+        let dimage = await fetch(`http://localhost:4000/image/${pid}`, {
+            responseType: 'blob'
+        })
+        console.log(dimage);
+        if (dimage.body == 'ReadableStream') {
+            console.log("119");
+            dimage = await dimage.json();
+            if (dimage) {
+                console.log('121');
+            }
+        }
+
+        dimage = await dimage.blob;
+
+        setImage(dimage);
+
+        
+    }
+
     return (
         <div className="login">
             <div>
@@ -185,29 +206,39 @@ const Searchfilter = () => {
                     <h1 >Have a look on Propertiesss!!!!!</h1>
                     {
                         properties.filter(pusehandle).map((item, index) =>
-                        <table id='customers'>
-                            
-                            <tr><td className='haha'>Property is for</td> <td>{item.buyrent}</td></tr>
-                            <tr><td className='haha'>Property type: </td><td>{item.property_type}</td></tr>
-                            <tr><td className='haha'>Property use: </td><td>{item.property_use}</td></tr>
-                            <tr><td className='haha'>Area of property:</td> <td>{item.area} {item.sqft_acres}</td></tr>
-                            <tr><td className='haha'>Street,city,pincode:</td><td>{item.street_name} {item.city} {item.pincode}</td></tr>
-                            <tr><td className='haha'>Price/rent:</td> <td>{item.price} dollars</td></tr>
-                            <tr><td className='haha'>Construction year:</td> <td>{item.construction_year}</td></tr>
-                            <tr><td className='haha'>Residential type: </td><td>{item.residential_type}</td></tr>
-                            <tr><td className='haha'>Number of bedrooms: </td><td>{item.bedrooms}</td></tr>
-                            
-                            {
-                                authcustomer ?
-                                    <div>
-                                    <h4><button onClick={() => saveproperty(item)}>Save</button></h4>
-                                        <h4><button onClick={() => bookproperty(item)}>Booking Request</button></h4>
-                                    </div>
-                                    :
-                                    <div><br /></div>
+                            <span>
+                            <table id='customers'>
 
-                            }
-                        </table>
+                                <tr><td className='haha'>Property is for</td> <td>{item.buyrent}</td></tr>
+                                <tr><td className='haha'>Property type: </td><td>{item.property_type}</td></tr>
+                                <tr><td className='haha'>Property use: </td><td>{item.property_use}</td></tr>
+                                <tr><td className='haha'>Area of property:</td> <td>{item.area} {item.sqft_acres}</td></tr>
+                                <tr><td className='haha'>Street,city,pincode:</td><td>{item.street_name} {item.city} {item.pincode}</td></tr>
+                                <tr><td className='haha'>Price/rent:</td> <td>{item.price} dollars</td></tr>
+                                <tr><td className='haha'>Construction year:</td> <td>{item.construction_year}</td></tr>
+                                <tr><td className='haha'>Residential type: </td><td>{item.residential_type}</td></tr>
+                                <tr><td className='haha'>Number of bedrooms: </td><td>{item.bedrooms}</td></tr>
+
+                                {
+                                    authcustomer ?
+                                        <span>
+                                                <span><button className='jaja' onClick={() => saveproperty(item)}>Save</button></span>
+                                                <span><button className='jaja' onClick={() => bookproperty(item)}>Request to book</button></span>
+                                        </span>
+                                        :
+                                        <div><br /></div>
+
+                                }
+                               
+                                
+                                <button className='jaja' onClick={() => handledownload(item.id)}>Click here to see property image</button>
+                            {image && (
+                                <div>
+                                    <img src={image} alt="Downloaded file" />
+                                </div>
+                                    )}
+                                </table>
+                            </span>
                 )}
                 </div>
             </div>

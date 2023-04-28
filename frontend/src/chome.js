@@ -13,11 +13,11 @@ const Chome = () => {
         <div>
             <ul className="home">
                 <li className="home"><Link to="/chome/sfoptions" className="link">Home</Link></li>
-                <li className="home"><Link to="/chome/cinfo" className="link">customer info</Link></li>
-                <li className="home"><Link to="/chome/bookedprop" className="link">booking_requests</Link></li>
-                <li className="home"><Link to="/chome/savedprop" className="link">SavedProperties</Link></li>
-                <li className="home"><Link to="/chome/deals" className="link">deals</Link></li>
-                <li className="home"><button onClick={logout} className="link">Logout</button></li>
+                <li className="home"><Link to="/chome/cinfo" className="link">Customer info</Link></li>
+                <li className="home"><Link to="/chome/bookedprop" className="link">Booking requests</Link></li>
+                <li className="home"><Link to="/chome/savedprop" className="link">Saved Properties</Link></li>
+                <li className="home"><Link to="/chome/deals" className="link">Deals</Link></li>
+                <li className="tada"><button className="tada" onClick={logout}>Logout</button></li>
             </ul>
             <Outlet />
         </div>
