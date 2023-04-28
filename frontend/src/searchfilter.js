@@ -108,6 +108,7 @@ const Searchfilter = () => {
         setFptype('');
         setFpuse('');
         setRtype('');
+        window.location.reload(false);
     }
 
     const handledownload = async (pid) => {
@@ -115,7 +116,7 @@ const Searchfilter = () => {
             responseType: 'blob'
         })
         console.log(dimage);
-        if (dimage.body == 'ReadableStream') {
+        if (dimage.body === 'ReadableStream') {
             console.log("119");
             dimage = await dimage.json();
             if (dimage) {
@@ -134,6 +135,8 @@ const Searchfilter = () => {
         <div className="login">
             <div>
                 <div>
+                    <h1> Welcome to 'FORTUNE SALE'</h1>
+                    <br />
                     <h1 className='search'>Explore and sort here!</h1>
                     <input className='button' type="text" placeholder="Search....... address, property type, property use, residential type" onChange={searchHandle}></input>
                     <h1 className='search'>Sort here!</h1>
