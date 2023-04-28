@@ -24,7 +24,7 @@ const Cinfo = () => {
     }
 
     return (
-        <div className="login">
+        <div className="bata">
             <h1>Information about customer</h1>
             {
                 info.map((item, index) =>

@@ -24,7 +24,7 @@ const Oprop = () => {
     }
 
     const confirm = async (property) => {
-        let result = await fetch(`http://localhost:4000/confirm`, {
+        let result = await fetch(`http://localhost:4000/confirm1`, {
             method: 'Post',
             body: JSON.stringify([property.cid, oid, property.id]),
             headers: {
@@ -38,7 +38,7 @@ const Oprop = () => {
         }
     }
     return (
-        <div className="login">
+        <div className='bata'>
             <h1>List of pending/confirmed deals</h1>
             <h1 hidden={hide}>there are no pending/confirmed deals</h1>
             <h1 hidden={!hide}>list of pending deals</h1>

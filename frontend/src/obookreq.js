@@ -36,7 +36,7 @@ const Obookreq = () => {
     }
 
     return (
-        <div className="login">
+        <div className="bata">
             <h1>List of booking requests</h1>
             <h1 hidden={hide}>there are no pending/confirmed deals</h1>
             <h1 hidden={!hide}>list of pending deals</h1>

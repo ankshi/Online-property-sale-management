@@ -25,7 +25,7 @@ const Cbookreq = () => {
     }
 
     return (
-        <div>
+        <div className='bata'>
             <h1> list of booking requests to owner </h1>
             <h1 hidden={hide}>no booking requests sent by customer</h1>
             {

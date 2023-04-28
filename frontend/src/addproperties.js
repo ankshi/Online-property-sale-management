@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 const Addprop = () => {
     const oidgi = localStorage.getItem("owner");
@@ -18,7 +18,6 @@ const Addprop = () => {
     const [pincode, setPincode] = useState('');
     const [bedrooms, setBedrooms] = useState('');
     const [rtpye, setRtype] = useState('');
-    const [imagefile, setImage] = useState(null);
     let requiredvalue1 = false;
     let requiredvalue2 = false;
 
@@ -115,14 +114,12 @@ const Addprop = () => {
             }
         })
         result = await result.json();
+        console.log(result);
         if (result) {
+            console.log(result);
             alert(result);
         }
     };
-
-    const filehandler = (event) => {
-        setImage(event.target.files[0]);
-    }
 
     if (sptype) {
         puseoptions = sptype.map((item) => <option value={item}>{item}</option>)
@@ -136,7 +133,7 @@ const Addprop = () => {
     if (ptype === 'Building' || ptype === 'Structure') { requiredvalue1 = true; }
 
     return (
-        <div className="login">
+        <div className="bata">
             <form onSubmit={handlefunction11}>
                 <h1>Add property</h1>
                 <label>Enter Address: </label>
@@ -201,8 +198,6 @@ const Addprop = () => {
                 <br />
                 <label>Enter number of bedrooms (applicable only for residential use): </label>
                 <input type='number' min='1' max='15' onChange={handlefunction10} placeholder='Number of bedrooms' required={requiredvalue2}></input>
-                <br />
-                <input type='file' onChange={ filehandler } />
                 <br />
                 <input type='submit'></input>
         </form>

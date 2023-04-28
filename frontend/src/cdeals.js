@@ -25,7 +25,7 @@ const Cdeals = () => {
     }
 
     const confirm = async (property) => {
-        let result = await fetch(`http://localhost:4000/confirm`, {
+        let result = await fetch(`http://localhost:4000/confirm2`, {
             method: 'Post',
             body: JSON.stringify([cid, property.oid, property.id]),
             headers: {
@@ -42,7 +42,7 @@ const Cdeals = () => {
     }
 
     return (
-        <div>
+        <div className='bata'>
             <h1>Pending/confirmed deals</h1>
             <h1 hidden={hide}>there are no pending/confirmed deals</h1>
             <h1 hidden={!hide}>list of pending deals</h1>

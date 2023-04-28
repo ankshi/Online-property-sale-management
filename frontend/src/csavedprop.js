@@ -38,7 +38,7 @@ const Oinfo = () => {
     }
 
     return (
-        <div className="login">
+        <div className="bata">
             <h1>List of properties saved by customer</h1>
             <h1 hidden={hide}>no properties saved by customer</h1>
             {
