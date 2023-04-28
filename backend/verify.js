@@ -7,7 +7,7 @@ function verifyotoken(req, res, next) {
         token1 = token.split(' ')[1];
         Jwt.verify(token1, data.ojwtkey, (error, valid) => {
             if (error) {
-                res.status(200).json("Invalid token");
+                res.status(200).json("Invalid token, please login again");
             }
             else if (valid){
                 next();
@@ -25,7 +25,7 @@ function verifyctoken(req, res, next) {
         token1 = token.split(' ')[1];
         Jwt.verify(token1, data.cjwtkey, (error, valid) => {
             if (error) {
-                res.status(200).json("Invalid token");
+                res.status(200).json("Invalid token, please login again");
             }
             else if (valid) {
                 next();

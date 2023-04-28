@@ -24,7 +24,16 @@ const addprop = async (req, res) => {
 }
 
 const fileupload = async (req, res) => {
-    console.log(req.body);
+    console.log(req.body.pid, req.file);
+    await pool.query('insert into images( pid, original_name, mime_type, filename, size, path) values($1,$2,$3,$4,$5,$6)', [req.body.pid, req.file.originalname, req.file.mimetype, req.file.filename, req.file.size, req.file.path], (error, result) => {
+        if (result) {
+            console.log("image is saved successfully");
+            res.status(200).json("image is saved successfully");
+        }
+        else {
+            console.log(error);
+        }
+    })
 } 
 
 module.exports = { addprop, fileupload };

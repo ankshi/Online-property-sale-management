@@ -1,7 +1,7 @@
 module.exports = {
     user: "postgres",
-    password: "postgres",
-    host: "127.0.0.1",
+    password: "sqldl",
+    host: "localhost",
     port: 5432,
     database: "project",
     saltedrounds: "10",

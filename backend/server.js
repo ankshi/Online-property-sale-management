@@ -1,7 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const cookieparser = require("cookie-parser");
-const sessions = require("express-session");
+const multer = require("multer");
 const pool0 = require("./verify.js");
 const pool1 = require("./logindetails");
 const pool2 = require("./signup.js");
@@ -13,23 +12,15 @@ const pool7 = require("./saveprop.js");
 const pool8 = require("./propdetails.js");
 const pool9 = require("./confirmdeal.js");
 const pool10 = require("./bookacc.js");
+const pool11 = require("./oproplist.js");
 const app = express();
+
+const upload = multer({ dest: 'uploads/' });
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname));
 app.use(cors());
-
-const expiry = 1000 * 60 * 60 * 24;
-
-app.use(sessions({
-    secret: "thisismysecrctekeyfhrgfgrfrty84fwir767",
-    saveUninitialized: true,
-    cookie: { maxAge: expiry },
-    resave: false
-}));
-
-app.use(cookieparser());
 
 app.post('/ologin', pool1.ologinid);
 app.post('/clogin', pool1.cloginid);
@@ -46,11 +37,14 @@ app.post('/bookreq', pool0.verifyctoken, pool7.bookprop);
 app.get('/lsprop/:cid', pool0.verifyctoken, pool8.lsprop);
 app.get('/brprop/:cid', pool0.verifyctoken, pool8.brprop);
 app.get('/cdeals/:cid', pool0.verifyctoken, pool8.deals);
-app.post('/confirm', pool0.verifyotoken, pool9.confirmdeal);
+app.post('/confirm1', pool0.verifyotoken, pool9.confirmdeal);
+app.post('/confirm2', pool0.verifyctoken, pool9.confirmdeal);
 app.get('/odeals/:oid', pool0.verifyotoken, pool8.odeals);
 app.get('/olbreq/:oid', pool8.obrlist);
 app.post('/bookacc', pool0.verifyotoken, pool10.bookacc);
-app.post('/fileupload', pool5.fileupload);
+app.post('/fileupload', pool0.verifyotoken, upload.single('image'), pool5.fileupload);
+app.get('/oprop/:oid', pool0.verifyotoken, pool11.proplist);
+app.get('/image/:pid', pool11.imageretrieval);
 
 app.listen(4000, function check(error) {
     if (error) { console.log("ERROR............"); }
